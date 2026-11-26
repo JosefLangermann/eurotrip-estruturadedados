@@ -316,7 +316,9 @@ int main() {
             if (horasPoupadas > 0) {
                 cout << "Justificativa: ganhar " << horasPoupadas << " h custaria R$ " << extraCusto
                      << " a mais (R$ " << extraCusto / horasPoupadas << " por hora poupada),\n";
-                cout << "acima do limite de R$ " << LIMITE_CUSTO_POR_HORA << " por hora, alem de " << extraDist << " km a mais.\n";
+                cout << "acima do limite de R$ " << LIMITE_CUSTO_POR_HORA << " por hora";
+                if (extraDist > 0) cout << ", alem de " << extraDist << " km a mais";
+                cout << ".\n";
             } else {
                 cout << "Justificativa: o caminho mais barato ja e tao rapido quanto os demais.\n";
             }
