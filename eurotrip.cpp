@@ -236,7 +236,7 @@ int main() {
     cout << "+======================================================+\n";
     cout << "|           EUROTRIP - GRAFO DE DESLOCAMENTOS          |\n";
     cout << "|  Roteiro: Sao Paulo > Lisboa > Madrid > Paris        |\n";
-    cout << "|           > Roma > Atenas > Amsterda > Berlim        |\n";
+    cout << "|           > Atenas > Roma > Amsterda > Berlim        |\n";
     cout << "+======================================================+\n";
 
     cout << "\n================ MATRIZES DE ADJACENCIA ================\n";
