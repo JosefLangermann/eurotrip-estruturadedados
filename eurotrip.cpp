@@ -161,13 +161,13 @@ void kruskal() {
     for (int u = 0; u < N; u++) {
         for (auto& a : grafo[u]) {
             if (u < a.destino) {
-                arestas.push_back({u, a.destino, a.custo, a.distancia, a.tempo});
+                arestas.push_back({u, a.destino, a., a.distancia, a.tempo});
             }
         }
     }
 
     sort(arestas.begin(), arestas.end(), [](const ArestaKruskal& a, const ArestaKruskal& b) {
-        return a.custo < b.custo;
+        return a. < b.;
     });
 
     for (int i = 0; i < N; i++) { pai[i] = i; rank_[i] = 0; }
@@ -176,20 +176,20 @@ void kruskal() {
     cout << "|         ARVORE GERADORA MINIMA (Kruskal)             |\n";
     cout << "+======================================================+\n";
     cout << left << setw(20) << "Origem" << setw(20) << "Destino"
-         << setw(12) << "Custo(R$)" << setw(12) << "Dist(km)" << "Tempo(h)\n";
+         << setw(12) << "(R$)" << setw(12) << "Dist(km)" << "Tempo(h)\n";
     cout << string(76, '-') << "\n";
 
-    double totalCusto = 0, totalDist = 0, totalTempo = 0;
+    double total = 0, totalDist = 0, totalTempo = 0;
     int arestasAGM = 0;
 
     for (auto& a : arestas) {
         if (unir(a.origem, a.destino)) {
             cout << left << setw(20) << cidades[a.origem]
                  << setw(20) << cidades[a.destino]
-                 << setw(12) << a.custo
+                 << setw(12) << a.
                  << setw(12) << a.distancia
                  << a.tempo << "\n";
-            totalCusto  += a.custo;
+            total  += a.;
             totalDist   += a.distancia;
             totalTempo  += a.tempo;
             arestasAGM++;
@@ -199,11 +199,11 @@ void kruskal() {
 
     cout << string(76, '-') << "\n";
     cout << left << setw(40) << "TOTAIS DA AGM:"
-         << setw(12) << totalCusto << setw(12) << totalDist << totalTempo << "\n";
+         << setw(12) << total << setw(12) << totalDist << totalTempo << "\n";
 }
 
 void imprimirMatriz(int tipoPeso) {
-    string nomes[] = {"CUSTO (R$)", "DISTANCIA (km)", "TEMPO (horas)"};
+    string nomes[] = {" (R$)", "DISTANCIA (km)", "TEMPO (horas)"};
     cout << "\n--- Matriz de " << nomes[tipoPeso] << " ---\n";
     cout << setw(12) << " ";
     for (int i = 0; i < N; i++) cout << setw(10) << cidades[i].substr(0,9);
@@ -311,7 +311,8 @@ int main() {
             cout << "Justificativa: cada hora poupada custa R$ " << extraCusto / horasPoupadas
                  << ", abaixo do limite de R$ " << LIMITE_CUSTO_POR_HORA << " por hora.\n";
         } else {
-            cout << "\nCriterio mais vantajoso: CUSTO (mesmo caminho da menor DISTANCIA)\n";
+            cout << "\nCriterio mais vantajoso: CUSTO"
+                 << (c0 == c1 ? " (mesmo caminho da menor DISTANCIA)" : "") << "\n";
             if (horasPoupadas > 0) {
                 cout << "Justificativa: ganhar " << horasPoupadas << " h custaria R$ " << extraCusto
                      << " a mais (R$ " << extraCusto / horasPoupadas << " por hora poupada),\n";
