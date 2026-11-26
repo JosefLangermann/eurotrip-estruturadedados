@@ -290,6 +290,9 @@ int main() {
     if (c0 == c1 && c1 == c2) {
         cout << "\nOs tres criterios resultam no mesmo caminho.\n";
         cout << "Criterio mais vantajoso: qualquer um (rota unica).\n";
+    } else if (c0 == c2) {
+        cout << "\nO caminho mais barato tambem e o mais rapido.\n";
+        cout << "Criterio mais vantajoso: CUSTO e TEMPO (mesma rota)\n";
     } else {
         double extraCusto = totais[2][0] - totais[0][0];
         double extraDist = totais[2][1] - totais[0][1];
